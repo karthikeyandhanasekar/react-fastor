@@ -59,19 +59,16 @@ const ProductDisplay = () => {
             value.sort((a, b) => a.name.localeCompare(b.name))
         else
             value.sort((a, b) => b.name.localeCompare(a.name))
-        console.log(value[0]);
 
         setproduct(value)
     }
     // sortby price
     const sortbyprice = (e) => {
         const value = [...product]
-        console.log(e.target.value);
         if (e.target.value === "L-H")
             value.sort((a, b) => a.price - b.price)
         else
             value.sort((a, b) => b.price - a.price)
-        console.log(value[0]);
 
         setproduct(value)
     }

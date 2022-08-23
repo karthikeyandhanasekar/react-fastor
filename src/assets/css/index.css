@@ -20,6 +20,10 @@ img {
     object-fit: contain;
 }
 
+li {
+    list-style-type: none;
+}
+
 .productimage {
     height: 50vh;
 }
