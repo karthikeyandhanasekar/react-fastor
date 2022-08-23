@@ -13,43 +13,43 @@ const Footer = () => {
             <Row>
                 <Col md={2}>
                     <ul>
-                        <li className=' mb-2'>Jeans</li>
-                        <li className=' mb-2'>Jacket & Coats</li>
-                        <li className=' mb-2'>Loungewear</li>
-                        <li className=' mb-2'>Polo shirts</li>
-                        <li className=' mb-2'>Underwear</li>
-                        <li className=' mb-2'>Shirts</li>
+                        <li className=' text-center mb-2'>Jeans</li>
+                        <li className=' text-center mb-2'>Jacket & Coats</li>
+                        <li className=' text-center mb-2'>Loungewear</li>
+                        <li className=' text-center mb-2'>Polo shirts</li>
+                        <li className=' text-center mb-2'>Underwear</li>
+                        <li className=' text-center mb-2'>Shirts</li>
                     </ul>
                 </Col>
                 <Col md={2}>
                     <ul>
-                        <li className=' mb-2'>Shorts</li>
-                        <li className=' mb-2'>Suits</li>
-                        <li className=' mb-2'>Swimwear</li>
-                        <li className=' mb-2'>Tracksuits</li>
-                        <li className=' mb-2'>Trousers</li>
-                        <li className=' mb-2'>T-shirts</li>
+                        <li className=' text-center mb-2'>Shorts</li>
+                        <li className=' text-center mb-2'>Suits</li>
+                        <li className=' text-center mb-2'>Swimwear</li>
+                        <li className=' text-center mb-2'>Tracksuits</li>
+                        <li className=' text-center mb-2'>Trousers</li>
+                        <li className=' text-center mb-2'>T-shirts</li>
                     </ul>
                 </Col>
                 <Col md={2}>
                     <ul>
-                        <li className=' mb-2'>My Account</li>
-                        <li className=' mb-2'>Order History</li>
-                        <li className=' mb-2'>Wishlist</li>
-                        <li className=' mb-2'>Newsletter</li>
-                        <li className=' mb-2'>Affiliate</li>
-                        <li className=' mb-2'>Returns</li>
+                        <li className=' text-center mb-2'>My Account</li>
+                        <li className=' text-center mb-2'>Order History</li>
+                        <li className=' text-center mb-2'>Wishlist</li>
+                        <li className=' text-center mb-2'>Newsletter</li>
+                        <li className=' text-center mb-2'>Affiliate</li>
+                        <li className=' text-center mb-2'>Returns</li>
                     </ul>
                 </Col>
                 <Col md={6}>
-                    <h3 className='mb-4'>Join our newsletter and get 20$ for your first order</h3>
+                    <h3 className='mb-4 text-center'>Join our newsletter and get 20$ for your first order</h3>
                     <div className='d-flex flex-row mb-5 '>
                         <Form.Control type="email" className="rounded-pill " placeholder="Email Address" />
                         <Button variant="danger" className="rounded-pill" type="">
                             Subscribe
                         </Button>
                     </div>
-                    <div className='d-flex flex-row'>
+                    <div className='d-flex flex-row mb-5'>
                         <svg xmlns="http://www.w3.org/2000/svg" width={25} className="me-5" viewBox="0 0 512 512">
                             <path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z" />
                         </svg>
@@ -70,7 +70,7 @@ const Footer = () => {
             </Row>
             <br />
             <div className='d-flex flex-row flex-wrap justify-content-around algin-items-center'>
-                <div className=''>
+                <div className='mb-5'>
                     <img className='img-fluid' src={paymentgateway} alt="online payments" />
                 </div>
                 <div className=''>
