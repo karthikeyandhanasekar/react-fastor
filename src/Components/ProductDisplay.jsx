@@ -1,36 +1,80 @@
 
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Form from 'react-bootstrap/Form';
+import Pagination from 'react-bootstrap/Pagination';
 
 import { products } from '../assets/data/products';
 const ProductDisplay = () => {
-    const [product] = useState(products.reverse())
+    const [product, setproduct] = useState(products.sort((a, b) => a.name.localeCompare(b.name)))
     const [productsUI, setproductsUI] = useState()
-
+    const [pageitem, setpageitem] = useState()
+    const [pageno, setpageno] = useState(1)
     useEffect(() => {
-        const rowUI = product.map(ele => <Col className="product" md={4} >
-            <div className='productimage'>
-                <img className='' loading='lazy' src={require(`../assets/images/${ele.name}.webp`)} alt={ele.name} />
-            </div>
-            <br />
-            <p>{ele.name}</p>
+        const totalproduct = product.length
+        const size = Number(6)
+        const totalpage = Math.floor((totalproduct / size) + Number(1))
 
-            {
-                ele.hasOwnProperty('offer') ?
-                    <p className='text-danger fw-semibold '>${ele.offer} &nbsp; <span className='fw-lighter text-dark text-decoration-line-through'>${ele.price}</span>
-                    </p>
-                    :
-                    <p className='text-danger fw-semibold '>${ele.price}</p>
-            }
-        </Col>)
+
+        const items = [...new Array(totalpage).keys()].map(number =>
+            <Pagination.Item onClick={() => setpageno(number + 1)} key={number + 1} active={number + 1 === pageno}>
+                {number + 1}
+            </Pagination.Item>)
+
+
+        // Page calculation
+        const index = pageno - 1
+        const start = (size * index)
+        const end = (size * pageno) < totalproduct ? (size * pageno) : totalproduct
+
+        const rowUI = React.Children.toArray(
+            product.map(ele => <Col className="product" md={4} >
+                <div className='productimage'>
+                    <img className='' loading='lazy' src={require(`../assets/images/${ele.name}.webp`)} alt={ele.name} />
+                </div>
+                <br />
+                <p>{ele.name}</p>
+
+                {
+                    ele.hasOwnProperty('offer') ?
+                        <p className='text-danger fw-semibold '>${ele.offer} &nbsp; <span className='fw-lighter text-dark text-decoration-line-through'>${ele.price}</span>
+                        </p>
+                        :
+                        <p className='text-danger fw-semibold '>${ele.price}</p>
+                }
+            </Col>).slice(start, end)
+        )
+
+        setpageitem(items)
 
         setproductsUI(rowUI)
 
-    }
-        , [])
+    }, [product, pageno])
 
+    // sort by alphabetics
+    const sortchange = (e) => {
+        const value = [...product]
+        if (e.target.value === "A-Z")
+            value.sort((a, b) => a.name.localeCompare(b.name))
+        else
+            value.sort((a, b) => b.name.localeCompare(a.name))
+        console.log(value[0]);
+
+        setproduct(value)
+    }
+    // sortby price
+    const sortbyprice = (e) => {
+        const value = [...product]
+        console.log(e.target.value);
+        if (e.target.value === "L-H")
+            value.sort((a, b) => a.price - b.price)
+        else
+            value.sort((a, b) => b.price - a.price)
+        console.log(value[0]);
+
+        setproduct(value)
+    }
 
 
     return (
@@ -58,17 +102,17 @@ const ProductDisplay = () => {
                 {/* TODO Need to complete */}
                 <div className="d-flex flex-row">
                     <span className=''>
-                        <Form.Select size="sm" className="border-0">
+                        <Form.Select size="sm" className="border-0" onChange={sortchange}>
                             <option value={"A-Z"} selected>Alphabetically A-Z</option>
                             <option value={"Z-A"} >Alphabetically Z-A</option>
                         </Form.Select>
                     </span>
 
                     <span className=''>
-                        <Form.Select size="sm" className="border-0">
-                            <option value={"12"} selected>12</option>
-                            <option value={"10"} >10</option>
-                            <option value={"8"} >8</option>
+                        <Form.Select size="sm" className="border-0" onChange={sortbyprice}>
+                            <option value={""} selected>Recommended</option>
+                            <option value={"L-H"} >Low to High</option>
+                            <option value={"H-L"} >High to Low</option>
                         </Form.Select>
                     </span>
                 </div>
@@ -78,6 +122,13 @@ const ProductDisplay = () => {
             <Row className="productsgrid">
                 {productsUI}
             </Row>
+            <br />
+            {/* Pagination */}
+            <div className='d-flex flex-row justify-content-center '>
+                <Pagination className=''>
+                    {pageitem}
+                </Pagination>
+            </div>
         </section>
     )
 
