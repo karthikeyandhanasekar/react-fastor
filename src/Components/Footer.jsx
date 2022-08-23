@@ -3,8 +3,10 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-
+import paymentgateway from '../assets/images/paymentgateway.png'
 const Footer = () => {
+
+    const currentyear = new Date().getFullYear()
 
     return (
         <footer className="bg-light p-5">
@@ -66,6 +68,17 @@ const Footer = () => {
 
                 </Col>
             </Row>
+            <br />
+            <div className='d-flex flex-row flex-wrap justify-content-around algin-items-center'>
+                <div className=''>
+                    <img className='img-fluid' src={paymentgateway} alt="online payments" />
+                </div>
+                <div className=''>
+                    <h2>(+800)1234 5678 90 <a href="/" className='text-dark fs-5 fw-normal' >info@company.com</a></h2>
+                </div>
+            </div>
+            <br />
+            <p> Copyright @ {currentyear}, Your Store. All right Reserved</p>
         </footer>
     )
 }
