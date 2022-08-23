@@ -50,14 +50,14 @@ export const products = [
     },
     {
         "id": 8,
-        "name": "Fine Stripe Short Sleeve￼Shirt, Grey",
+        "name": "Fine Stripe Short Sleeve Shirt, Grey",
         "category": "Mens Casualwear",
         "price": 49.99,
         "stock": 9
     },
     {
         "id": 9,
-        "name": "Fine Stripe Short Sleeve￼Shirt, Green",
+        "name": "Fine Stripe Short Sleeve Shirt, Green",
         "category": "Mens Casualwear",
         "price": 49.99,
         "offer": 39.99,
@@ -72,7 +72,7 @@ export const products = [
     },
     {
         "id": 11,
-        "name": "Lightweight Patch Pocket￼Blazer, Deer",
+        "name": "Lightweight Patch Pocket Blazer, Deer",
         "category": "Mens Formalwear",
         "price": 175.50,
         "stock": 1
